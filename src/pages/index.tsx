@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import axios from 'axios';
 import Link from 'next/link';
+import DashboardCards from '@/components/DashboardCards';
 
 const Index = () => {
     const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -33,21 +34,16 @@ const Index = () => {
     if (loading) return <p>Loading...</p>;
 
     return isAuthenticated ? (
-        <div className="flex flex-col items-center justify-center min-h-screen">
-            <h1 className="mb-6 text-3xl font-bold">Dashboard</h1>
-            <Link
-                href="/dashboard"
-                className="px-4 py-2 mb-4 text-white bg-blue-500 rounded hover:bg-blue-700"
-            >
-                Go to Dashboard
-            </Link>
+        <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100">
+            <h1 className="mb-6 text-3xl font-bold">Welcome</h1>
+            <DashboardCards />
             <button
                 onClick={() => {
                     localStorage.removeItem('userId');
                     localStorage.removeItem('role');
                     router.reload();
                 }}
-                className="px-4 py-2 text-white bg-red-500 rounded hover:bg-red-700"
+                className="mt-8 px-4 py-2 text-white bg-red-500 rounded hover:bg-red-700"
             >
                 Logout
             </button>

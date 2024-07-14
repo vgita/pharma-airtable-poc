@@ -17,7 +17,7 @@ const Login = () => {
             if (response.data.success) {
                 localStorage.setItem('userId', response.data.userId);
                 localStorage.setItem('role', response.data.role);
-                router.push('/dashboard');
+                router.push('/');
             } else {
                 alert('Invalid credentials');
             }
